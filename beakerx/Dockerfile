@@ -2,7 +2,8 @@ FROM goofts/hummingbirds
 
 MAINTAINER goofts loking.zhao.moshang@icloud.com
 
-RUN apk add bash zip maven && curl -s https://get.sdkman.io | bash
+RUN apk add bash zip maven && curl -s https://get.sdkman.io | bash && \
+    rm -rf /root/.[abcplnwz]* && rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /root/notebook/*
 
 SHELL ["/bin/bash", "-c"]
 
