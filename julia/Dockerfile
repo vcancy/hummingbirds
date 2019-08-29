@@ -4,7 +4,7 @@ MAINTAINER goofts loking.zhao.moshang@icloud.com
 
 RUN apk upgrade && apk add --no-cache linux-headers libarchive-tools gtk-update-icon-cache tar gfortran perl python && \
     git clone https://github.com/goofts/Julia.git && cd Julia && git pull && make && make install && cd ../         && \
-    cp -R /root/notebook/julia/julia-* /root/julia && find /usr/lib/python3.* -name __pycache__ | xargs rm -rf      && \
+    cp -R /root/notebook/Julia/julia-* /root/julia && find /usr/lib/python3.* -name __pycache__ | xargs rm -rf      && \
     rm -rf /root/.[acplnw]* /tmp/* /var/tmp/* /var/cache/apk/* /root/notebook/*
 
 ENV PATH /root/julia/bin:$PATH
