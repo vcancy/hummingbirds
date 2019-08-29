@@ -2,10 +2,15 @@ FROM goofts/hummingbirds
 
 MAINTAINER goofts loking.zhao.moshang@icloud.com
 
-RUN apk add bash zip maven && ln -snf /bin/bash /bin/sh && curl -s https://get.sdkman.io | bash    && \
-    bash /root/.sdkman/bin/sdkman-init.sh && sdk install kotlin 1.3.50 && sdk install scala 2.13.0 && \
-    ln -snf /bin/busybox /bin/sh && find /usr/lib/python* -name __pycache__ |  xargs rm -rf        && \
-    rm -rf /root/.[abcplnwz]* /tmp/* /var/tmp/* /var/cache/apk/* /root/notebook/*
+RUN apk add bash zip maven && curl -s https://get.sdkman.io | bash
+
+SHELL ["/bin/bash", "-c"]
+
+RUN source /root/.sdkman/bin/sdkman-init.sh && sdk install kotlin 1.3.50 && sdk install scala 2.13.0 && \
+    find /usr/lib/python* -name __pycache__ | xargs rm -rf && rm -rf /root/.[abcplnwz]*              && \
+    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /root/notebook/*
+
+SHELL ["/bin/sh", "-c"]
 
 ENV PATH /root/.sdkman/candidates/scala/2.13.0/bin:/root/.sdkman/candidates/kotlin/1.3.50/bin:$PATH
 
