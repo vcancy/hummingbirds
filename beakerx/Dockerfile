@@ -22,7 +22,7 @@ RUN echo -e "\nexport KOTLIN_HOME=/root/.sdkman/candidates/kotlin/1.3.50" | tee 
 
 RUN apk update && apk upgrade && apk add --no-cache python3-dev    && \
     pip3 install beakerx py4j ipywidgets pandas && beakerx install && \
-    find /usr/lib/python3.* -name __pycache__ | xargs rm -rf       && \
-    rm -rf /root/.[acplnw]* /tmp/* /var/tmp/* /var/cache/apk/* /root/notebook/*
+    find /usr/lib/python* -name __pycache__ | xargs rm -rf         && \
+    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /root/.[acplnw]* /root/notebook/*
 
 CMD supervisord -c /root/.supervisor/supervisord.conf

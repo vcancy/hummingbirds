@@ -8,8 +8,8 @@ RUN apk update && apk upgrade && apk add --no-cache apache2 php7 php7-apache2   
     wget https://litipk.github.io/Jupyter-PHP-Installer/dist/jupyter-php-installer.signed.phar.pubkey && \
     wget https://litipk.github.io/Jupyter-PHP-Installer/dist/jupyter-php-installer.signed.phar        && \
     composer require react/zmq && php jupyter-php-installer.signed.phar install && chmod -R 777 /root && \
-    find /usr/lib/python3.* -name __pycache__ | xargs rm -rf && rm -rf /root/.[acplnw]*               && \
-    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /root/notebook/*
+    find /usr/lib/python* -name __pycache__ | xargs rm -rf && rm -rf /root/.[acplnw]*                 && \
+    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /root/.[acplnw]* /root/notebook/*
     
 RUN sed  -i  "s:Listen 80:Listen 40826:g"                                        /etc/apache2/httpd.conf && \
     sed  -i  "s:/var/www/localhost/htdocs:/root/notebook:g"                      /etc/apache2/httpd.conf && \
