@@ -2,7 +2,7 @@ FROM goofts/hummingbirds
 
 MAINTAINER goofts loking.zhao.moshang@icloud.com
 
-RUN apk update && apk upgrade && apk python2-dev py2-pip linux-headers python3-dev              && \
+RUN apk update && apk upgrade && apk add python2-dev py2-pip linux-headers python3-dev          && \
     pip2 install pyzmq ipykernel && pip3 install jupyterlab-dash==0.1.0a3 tqdm Cython           && \
     python -m ipykernel install && pip3 install git+https://github.com/goofts/line_profiler.git && \
     jupyter labextension install jupyterlab-dash@0.1.0-alpha.3                                  && \
