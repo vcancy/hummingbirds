@@ -70,6 +70,8 @@ RUN echo -e "\nc.NotebookApp.allow_root = True"                     | tee -a /ro
     tee  -a /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings                 && \
     echo -e '{"autoClosingBrackets":true,"fontFamily":"courier new","fontSize":16,"lineWrap":"on","lineNumbers":true},' |  \
     tee  -a /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings                 && \
+    echo -e '"kernelShutdown": true,'                                                                                   |  \
+	tee  -a /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings                 && \
     echo -e '"markdownCellConfig":'                                                                                     |  \
     tee  -a /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings                 && \
     echo -e '{"autoClosingBrackets":false,"fontFamily":"courier new","fontSize":16,"lineNumbers":true},'                |  \
